@@ -4,55 +4,38 @@
 * { margin: 0; padding: 0 }
 * { box-sizing: border-box; }
 *::before, *::after { box-sizing: border-box; }
+
 /*
 ** 主题配色
 */
+
 $color-primary: #1fab89;
 $color-text: #081e1f;
 $color-bg: #ffffff;
 $color-bg-tab: #fafafa;
 $color-bg-active: #d7fbe8;
+$color-bg-dark: rgba(3, 6, 7, 0.80);
 $color-border: #dadada;
 $color-shadow: #1fab89;
 $color-disabled: #aaaaaa;
 $color-error: #ff6464;
 
-$box-shadow-outer: 0 1px 1px rgba(27, 134, 104, 0.80);
-$box-shadow-inner: inset 0 1px 1px rgba(27, 134, 104, 0.80);
 $border: 1px solid $color-border;
 
+$box-shadow-outer: 0 1px 1px rgba(27, 134, 104, 0.80);
+$box-shadow-inner: inset 0 1px 1px rgba(27, 134, 104, 0.80);
 
 /*
 ** 组件大小
 */
 
-$border-radius: 16px;
 $font-size: 14px;
-$height-button: 32px;
 
+$border-radius: 16px;
 $border-radius-card: 8px;
 
+$height-button: 32px;
 $height-title: 32px;
 $height-input: 32px;
 $height-tab: 40px;
-
-//$color-ex-light: #e3fdfd;
-//$color-light: #cbf1f5;
-//$color-primary: #56a7ac;
-//$color-dark: #2a6c6f;
-//$color-ex-dark: #282c34;
-//$color-base: #ffffff;
-//$color-disabled: #aaaaaa;
-//$color-error: #ff6464;
-//
-//
-//$text-color: #2a6c6f;
-//$font-size: 14px;
-//$button-height: 32px;
-//$border-radius: 16px;
-//$border-color: #56a7ac;
-//$background-color: #ffffff;
-//$border-color-hover: #2a6c6f;
-//$box-shadow-color:rgba(42, 108, 111, 0.7);
-//$button-bg-active: #2a6c6f;
-//$button-text-active: #cbf1f5;
+$height-toast: 40px;

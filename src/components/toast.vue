@@ -85,12 +85,7 @@
 </script>
 
 <style lang="scss" scoped>
-  $toast-border-radius: 12px;
-  $toast-bg: rgba(21, 23, 29, 0.85);
-  $toast-min-height: 40px;
-  $animation-duration: .3s;
-  $font-size: 14px;
-  $line-color: rgba(102, 102, 102, 0.8);
+  @import "src/assets/styles/default.scss";
   @keyframes slide-up {
     0% {opacity: 0; transform: translateY(100%);}
     100% {opacity: 1; transform: translateY(0%);}
@@ -127,14 +122,14 @@
       &.position-middle {
         width: 60%;
         .toast {
-          border-radius: 16px;
+          border-radius: $border-radius-card;
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
           .line {
             width: 100%;
             border: none;
-            border-bottom: 1px solid $line-color;
+            border-bottom: 1px solid transparentize($color-border, .75);
           }
           .close {
             padding: 4px;
@@ -156,7 +151,7 @@
       .toast {
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        animation: slide-down $animation-duration;
+        animation: slide-down .3s;
       }
     }
     &.position-bottom {
@@ -164,31 +159,31 @@
       .toast {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        animation: slide-up $animation-duration;
+        animation: slide-up .3s;
       }
     }
     &.position-middle {
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
       .toast {
-        animation: fade-in $animation-duration;
+        animation: fade-in .3s;
       }
     }
   }
   .toast {
     font-size: $font-size;
     line-height: 1.8;
-    min-height: $toast-min-height;
+    min-height: $height-toast;
     display: flex;
     align-items: center;
-    background: $toast-bg;
+    background: $color-bg-dark;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
-    border-radius: $toast-border-radius;
+    border-radius: $border-radius-card;
     color: white;
     padding: 0 16px;
     .line {
       height: 100%;
-      border-left: 1px solid $line-color;
+      border-left: 1px solid transparentize($color-border, .75);
       margin-left: 16px;
     }
     .close {
