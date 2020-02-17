@@ -1,6 +1,6 @@
 # Hais UI
 
-[![Build Status](https://travis-ci.com/Hyuain/hais-ui.svg?branch=master)](https://travis-ci.com/Hyuain/hais-ui) ![GitHub package.json version](https://img.shields.io/github/package-json/v/Hyuain/hais-ui)
+[![Build Status](https://travis-ci.com/Hyuain/hais-ui-new.svg?branch=master)](https://travis-ci.com/Hyuain/hais-ui) ![GitHub package.json version](https://img.shields.io/github/package-json/v/Hyuain/hais-ui-new)
 
 Hais UI 是一个简单好用的 UI 框架，他基于 [Vue.js](https://cn.vuejs.org/index.html) 搭建，提供了按钮、输入框、网格系统、默认布局、弹出信息、标签、气泡卡片和折叠面板等基本组件。
 

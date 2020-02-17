@@ -8,7 +8,7 @@ module.exports = {
     nav: [
       {text: '主页', link: '/'},
       {text: '博客', link: 'https://hais-teatime.com/post/2020-01-27-hais-ui'},
-      {text: 'GitHub', link: 'https://github.com/Hyuain/hais-ui'},
+      {text: 'GitHub', link: 'https://github.com/Hyuain/hais-ui-new'},
     ],
     sidebar: [
       {

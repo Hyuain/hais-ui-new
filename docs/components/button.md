@@ -27,7 +27,7 @@ sidebarDepth: 2
 
 
 ## icon 
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`String`
 
@@ -61,7 +61,7 @@ sidebarDepth: 2
 
 
 ## loading
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`Boolean`
 
@@ -86,7 +86,7 @@ sidebarDepth: 2
 
 
 ## icon-position
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`String`
 
@@ -111,7 +111,7 @@ sidebarDepth: 2
 
 
 ## button-group
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 用法示例：
 

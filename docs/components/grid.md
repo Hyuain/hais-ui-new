@@ -25,7 +25,7 @@ sidebarDepth: 2
 
 
 ## auto
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`Boolean`
 
@@ -60,7 +60,7 @@ sidebarDepth: 2
 
 
 ## gutter
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`String` `Number`
 
@@ -94,7 +94,7 @@ sidebarDepth: 2
 
 
 ## span
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`String` `Number`
 
@@ -122,7 +122,7 @@ sidebarDepth: 2
 
 
 ## offset
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`String` `Number`
 

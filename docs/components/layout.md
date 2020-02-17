@@ -43,7 +43,7 @@ sidebarDepth: 2
   color:  #71c9ce;
 }
 .header, .footer{
-  background-color: #56a7ac;
+  background-color: #1fab89;
   height: 50px;
 }
 ```

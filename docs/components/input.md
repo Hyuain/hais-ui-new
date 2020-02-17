@@ -21,7 +21,7 @@ sidebarDepth: 2
 
 
 ## value
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`String`
 
@@ -43,7 +43,7 @@ sidebarDepth: 2
 
 
 ## disabled
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`Boolean`
 
@@ -67,7 +67,7 @@ sidebarDepth: 2
 
 
 ## readonly
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`Boolean`
 
@@ -91,7 +91,7 @@ sidebarDepth: 2
 
 
 ## error
-<font color=#56a7ac>可选</font>
+<font color=#1fab89>可选</font>
 
 - 类型：`String`
 
