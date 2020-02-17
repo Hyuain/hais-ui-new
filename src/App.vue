@@ -116,7 +116,7 @@
           <hai-input value="啧" error="姓名不能少于两个字"></hai-input>
         </div>
         <div class="box">
-          <hai-input value="啧"  @focus="this.focus2"></hai-input>
+          <hai-input value="啧"></hai-input>
         </div>
 
     <button @click="showToast1">top</button>

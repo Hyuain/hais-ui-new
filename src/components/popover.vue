@@ -1,8 +1,10 @@
 <template>
   <div class="popover" ref="popover">
-    <div ref="contentWrapper" class="content-wrapper" v-if="visible" :class="{[`position-${position}`]: true}">
-      <slot name="content" :close="close"></slot>
-    </div>
+    <transition name="fade">
+      <div ref="contentWrapper" class="content-wrapper" v-if="visible" :class="{[`position-${position}`]: true}">
+        <slot name="content" :close="close"></slot>
+      </div>
+    </transition>
     <span ref="triggerWrapper" class="trigger-wrapper">
       <slot></slot>
     </span>
@@ -134,47 +136,50 @@
 </script>
 
 <style lang="scss" scoped>
-  $border-color: #56a7ac;
-  $popover-border-radius: 12px;
-  $text-color: #2a6c6f;
-  $box-shadow-color: rgba(42, 108, 111, 0.7);
+  @import "src/assets/styles/default.scss";
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .2s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
   .popover {
     display: inline-block;vertical-align: top;position: relative;
     .trigger-wrapper {display: inline-block;}
   }
   .content-wrapper {
-    color: $text-color;
+    color: $color-text;
     position: absolute;
-    border: 1px solid $border-color;
-    border-radius: $popover-border-radius;
+    border: 1px solid $color-primary;
+    border-radius: $border-radius-card;
     max-width: 20em;
     padding: .5em 1em;
     word-break: break-all;
-    filter: drop-shadow(0 1px 1px $box-shadow-color);
+    filter: drop-shadow($box-shadow-outer);
     background-color: white;
     &::before, &::after {content: '';display: block;border: 10px solid transparent;width: 0;height: 0;position: absolute;}
     &.position-top {
       transform: translateY(-100%);margin-top: -10px;
       &::before, &::after {left: 10px;border-bottom: none;}
-      &::before {top: 100%;border-top-color: $border-color;}
+      &::before {top: 100%;border-top-color: $color-primary;}
       &::after {top: calc(100% - 1px);border-top-color: white;}
     }
     &.position-bottom {
       margin-top: 10px;
       &::before, &::after {left: 10px;border-top: none;}
-      &::before {bottom: 100%;border-bottom-color: $border-color;}
+      &::before {bottom: 100%;border-bottom-color: $color-primary;}
       &::after {bottom: calc(100% - 1px);border-bottom-color: white;}
     }
     &.position-left {
       transform: translateX(-100%);margin-left: -10px;
       &::before, &::after {top: 50%;border-right: none;transform: translateY(-50%);}
-      &::before {left: 100%;border-left-color: $border-color;}
+      &::before {left: 100%;border-left-color: $color-primary;}
       &::after {left: calc(100% - 1px);border-left-color: white;}
     }
     &.position-right {
       margin-left: 10px;
       &::before, &::after {top: 50%;border-left: none;transform: translateY(-50%);}
-      &::before {right: 100%;border-right-color: $border-color;}
+      &::before {right: 100%;border-right-color: $color-primary;}
       &::after {right: calc(100% - 1px);border-right-color: white;}
     }
   }
