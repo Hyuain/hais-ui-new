@@ -68,6 +68,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "src/assets/styles/default.scss";
   .col {
     @for $n from 1 through 24 {
       &.col-#{$n} {

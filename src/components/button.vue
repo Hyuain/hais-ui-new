@@ -35,16 +35,7 @@
 </script>
 
 <style lang="scss" scoped>
-  $text-color: #2a6c6f;
-  $font-size: 14px;
-  $button-height: 32px;
-  $border-radius: 16px;
-  $border-color: #56a7ac;
-  $background-color: #ffffff;
-  $border-color-hover: #2a6c6f;
-  $box-shadow-color:rgba(42, 108, 111, 0.7);
-  $button-bg-active: #2a6c6f;
-  $button-text-active: #cbf1f5;
+  @import "src/assets/styles/default.scss";
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -54,26 +45,27 @@
     }
   }
   .button {
-    color: $text-color;
     font-size: $font-size;
-    height: $button-height;
-    line-height: $button-height;
+    color: $color-text;
+    height: $height-button;
+    line-height: $height-button;
     padding: 0 1em;
     border-radius: $border-radius;
-    border: 1px solid $border-color;
-    background: $background-color;
+    border: $border;
+    background: $color-bg;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
     transition: all .1s;
     &:hover {
-      border-color: $border-color-hover;
-      box-shadow: 0 1px 1px $box-shadow-color;
+      color: $color-primary;
+      border-color: $color-primary;
+      box-shadow: $box-shadow;
     }
     &:active {
-      background-color: $button-bg-active;
-      color: $button-text-active;
+      background-color: $color-primary;
+      color: $color-bg;
     }
     &:focus {
       outline: none;
