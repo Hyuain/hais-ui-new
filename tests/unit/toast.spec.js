@@ -1,84 +1,75 @@
-// import {expect} from 'chai';
-// import Vue from 'vue'
-// import Toast from '@/components/toast.vue'
-//
-// Vue.config.productionTip = false
-// Vue.config.devtools = false
-//
-// describe('Toast', () => {
-//
-//   it('存在.', () => {
-//     expect(Toast).to.exist
-//   })
-//
-//   describe('props', () => {
-//     it('接受 autoClose', (done) => {
-//       const div = document.createElement('div')
-//       document.body.appendChild(div)
-//       const Constructor = Vue.extend(Toast)
-//       const vm = new Constructor({
-//         propsData: {
-//           autoClose: 1
-//         }
-//       }).$mount(div)
-//
-//       setTimeout(() => {
-//         expect(document.body.contains(vm.$el)).to.eq(false)
-//         vm.$el.remove()
-//         vm.$destroy()
-//         done()
-//       }, 1200)
-//     })
-//
-//     it('接受 closeButton', (done) => {
-//       const Constructor = Vue.extend(Toast)
-//       const callback = sinon.fake()
-//       const vm = new Constructor({
-//         propsData: {
-//           closeButton: {
-//             text: '关闭',
-//             callback,
-//           }
-//         }
-//       }).$mount()
-//       let closeButton = vm.$el.querySelector('.close')
-//       expect(closeButton.textContent.trim()).to.eq('关闭')
-//       setTimeout(() => {
-//         closeButton.click()
-//         expect(callback).to.have.been.called
-//         vm.$el.remove()
-//         vm.$destroy()
-//         done()
-//       })
-//     })
-//
-//     it('接受 enableHtml', () => {
-//       const Constructor = Vue.extend(Toast)
-//       const vm = new Constructor({
-//         data() {
-//           return {
-//             message: '<strong id="hix">hi</strong>'
-//           }
-//         },
-//         propsData: {
-//           enableHtml: true
-//         }
-//       })
-//       vm.$mount()
-//       expect(vm.$el.querySelector('#hix')).to.exist
-//       vm.$el.remove()
-//       vm.$destroy()
-//     })
-//
-//     it('接受 position', () => {
-//       const Constructor = Vue.extend(Toast)
-//       const vm = new Constructor({
-//         propsData: {
-//           position: 'bottom'
-//         }
-//       }).$mount()
-//       expect(vm.$el.classList.contains('position-bottom')).to.eq(true)
-//     })
-//   })
-//
-// })
+import {expect} from 'chai'
+import {mount} from '@vue/test-utils'
+import sinon from 'sinon'
+import Toast from '@/components/toast.vue'
+
+describe('Toast', () => {
+
+  it('存在.', () => {
+    expect(Toast).to.exist
+  })
+
+  describe('props', () => {
+
+    it('接受 autoClose.', (done) => {
+      const wrapper = mount(Toast, {
+        propsData: {
+          autoClose: 1
+        }
+      })
+      setTimeout(() => {
+        expect(wrapper.exists()).to.be.true
+      }, 500)
+      setTimeout(() => {
+        expect(wrapper.exists()).to.be.false
+        wrapper.destroy()
+        done()
+      }, 1200)
+    })
+
+    it('接受 closeButton.', (done) => {
+      const callback = sinon.fake()
+      const wrapper = mount(Toast, {
+        propsData: {
+          closeButton: {
+            text: '关闭',
+            callback,
+          }
+        }
+      })
+      const closeButtonWrapper = wrapper.find('.close')
+      expect(closeButtonWrapper.text()).to.eq('关闭')
+      expect(wrapper.exists()).to.be.true
+      wrapper.vm.$nextTick(() => {
+        closeButtonWrapper.trigger('click')
+        expect(callback.called).to.be.true
+        expect(wrapper.exists()).to.be.false
+        done()
+      })
+    })
+
+    it('接受 enableHtml.', () => {
+      const wrapper = mount(Toast, {
+        data() {
+          return {
+            message: '<strong id="hix">hi</strong>'
+          }
+        },
+        propsData: {
+          enableHtml: true
+        }
+      })
+      expect(wrapper.find('#hix').text()).to.eq('hi')
+    })
+
+    it('接受 position.', () => {
+      const wrapper = mount(Toast,{
+        propsData: {
+          position: 'bottom'
+        }
+      })
+      expect(wrapper.classes('position-bottom')).to.be.true
+    })
+  })
+
+})

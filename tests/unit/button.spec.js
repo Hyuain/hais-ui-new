@@ -1,10 +1,7 @@
-import {expect} from 'chai';
-import Vue from 'vue'
+import {expect} from 'chai'
+import sinon from 'sinon'
 import {mount} from '@vue/test-utils'
 import Button from '@/components/button.vue'
-
-Vue.config.productionTip = false
-Vue.config.devtools = false
 
 describe('Button', () => {
 
@@ -20,63 +17,51 @@ describe('Button', () => {
     })
     const useWrapper = wrapper.find('use')
     expect(useWrapper.attributes('href')).to.equal('#settings')
+    wrapper.destroy()
   })
 
-  // it('可以设置loading.', () => {
-  //   const Constructor = Vue.extend(Button)
-  //   const vm = new Constructor({
-  //     propsData: {
-  //       icon: 'settings',
-  //       loading: true
-  //     }
-  //   }).$mount()
-  //   const useElements = vm.$el.querySelectorAll('use')
-  //   expect(useElements.length).to.equal(1)
-  //   expect(useElements[0].getAttribute('xlink:href')).to.equal('#loading')
-  //   vm.$destroy()
-  // })
+  it('可以设置 loading.', () => {
+    const wrapper = mount(Button, {
+      propsData: {
+        icon: 'settings',
+        loading: true
+      }
+    })
+    const useWrapperArray = wrapper.findAll('use')
+    expect(useWrapperArray.length).to.equal(1)
+    expect(useWrapperArray.wrappers[0].attributes('href')).to.equal('#loading')
+    wrapper.destroy()
+  })
 
-  // it('icon 默认的 order 是 1', () => {
-  //   const div = document.createElement('div')
-  //   document.body.appendChild(div)
-  //   const Constructor = Vue.extend(Button)
-  //   const vm = new Constructor({
-  //     propsData: {
-  //       icon: 'settings',
-  //     }
-  //   }).$mount(div)
-  //   const icon = vm.$el.querySelector('svg')
-  //   expect(getComputedStyle(icon).order).to.eq('1')
-  //   vm.$el.remove()
-  //   vm.$destroy()
-  // })
+  it('Button 默认为 icon-left.', () => {
+    const wrapper = mount(Button, {
+      propsData: {
+        icon: 'settings'
+      }
+    })
+    expect(wrapper.classes('icon-left')).to.be.true
+    expect(wrapper.classes('icon-right')).to.be.false
+    wrapper.destroy()
+  })
 
-  // it('设置 iconPosition 可以改变 order', () => {
-  //   const div = document.createElement('div')
-  //   document.body.appendChild(div)
-  //   const Constructor = Vue.extend(Button)
-  //   const vm = new Constructor({
-  //     propsData: {
-  //       icon: 'settings',
-  //       iconPosition: 'right'
-  //     }
-  //   }).$mount(div)
-  //   const icon = vm.$el.querySelector('svg')
-  //   expect(getComputedStyle(icon).order).to.eq('2')
-  //   vm.$el.remove()
-  //   vm.$destroy()
-  // })
-  //
-  // it('点击 button 触发 click 事件', () => {
-  //   const Constructor = Vue.extend(Button)
-  //   const vm = new Constructor({
-  //     propsData: {
-  //       icon: 'settings',
-  //     }
-  //   }).$mount()
-  //   const callback = sinon.fake();
-  //   vm.$on('click', callback)
-  //   vm.$el.click()
-  //   expect(callback).to.have.been.called
-  // })
+  it('通过 iconPosition 可以设置 Button 为 icon-right.', () => {
+    const wrapper = mount(Button, {
+      propsData: {
+        icon: 'settings',
+        iconPosition: 'right'
+      }
+    })
+    expect(wrapper.classes('icon-right')).to.be.true
+    expect(wrapper.classes('icon-left')).to.be.false
+    wrapper.destroy()
+  })
+
+  it('点击 Button 触发 click 事件.', () => {
+    const callback = sinon.fake();
+    const wrapper = mount(Button)
+    wrapper.vm.$on('click', callback)
+    wrapper.trigger('click')
+    expect(callback.called).to.be.true
+    wrapper.destroy()
+  })
 })

@@ -42,7 +42,7 @@
       checkChildren() {
         if (this.$children.length === 0) {
           console && console.warn &&
-          console.warn(`<hai-tabs> 的子组件应该是 <hai-tabs-head> 和 <hai-tabs-nav>，但是你没有写子组件`)
+          console.warn(`<hai-tabs> 的子组件应该是 <hai-tabs-head> 和 <hai-tabs-body>，但是你没有写子组件`)
         }
       },
       selectDefaultTab() {
