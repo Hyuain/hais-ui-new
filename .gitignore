@@ -4,6 +4,7 @@ App.vue
 .DS_Store
 node_modules
 /dist
+docs/.vuepress/dist
 
 # local env files
 .env.local
