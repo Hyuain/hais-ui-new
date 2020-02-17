@@ -1,18 +1,31 @@
 <template>
   <div class="collapse-item">
     <div class="title" @click="onClick" ref="title" :data-title="title" :data-name="name">
+      <hai-icon name="right" :class="{'icon': true,'icon-down': open}"/>
       {{title}}
     </div>
-    <div class="content" v-if="open" ref="content">
-      <slot></slot>
-    </div>
+    <transition
+        @enter="enter"
+        @after-enter="afterEnter"
+        @leave="leave"
+        @after-leave="afterLeave"
+    >
+      <div class="content" v-if="open" ref="content">
+        <slot></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
+  import Icon from "./icon.vue";
+
   export default {
     name: "HaiCollapseItem",
     inject: ['eventBus'],
+    components: {
+      "hai-icon": Icon
+    },
     props: {
       title: {
         type: String,
@@ -40,40 +53,67 @@
         } else {
           this.eventBus.$emit('add:selected', this.name)
         }
+      },
+      enter(el) {
+        el.style.transition = 'height .3s ease-in-out'
+        el.style.overflow = 'hidden'
+        el.style.height = 'auto'
+        let endHeight = getComputedStyle(el).height
+        el.style.height = '0px'
+        el.offsetHeight
+        el.style.height = endHeight
+      },
+      afterEnter(el) {
+        el.style.height = null
+      },
+      leave(el) {
+        el.style.height = getComputedStyle(el).height
+        el.offsetHeight
+        el.style.height = '0px'
+      },
+      afterLeave(el) {
+        el.style.height = null
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  $collapse-border-radius: 12px;
-  $border-color: #56a7ac;
+  @import "src/assets/styles/default.scss";
   .collapse-item {
+    .icon {
+      margin-right: 4px;
+      transition: transform .3s;
+    }
+    .icon-down {
+      transform: rotate(90deg);
+    }
     > .title {
-      border: 1px solid $border-color;
+      border: $border;
       margin-top: -1px;
       margin-left: -1px;
       margin-right: -1px;
-      min-height: 32px;
+      height: $height-title;
+      line-height: $height-title;
       display: flex;
       align-items: center;
       padding: 0 8px;
+      cursor: pointer;
+      background: $color-bg-tab;
     }
     &:first-child {
       > .title {
-        border-top-left-radius: $collapse-border-radius;
-        border-top-right-radius: $collapse-border-radius;
+        border-radius: $border-radius-card $border-radius-card 0 0;
       }
     }
     &:last-child {
       > .title:last-child {
         margin-bottom: -1px;
-        border-bottom-left-radius: $collapse-border-radius;
-        border-bottom-right-radius: $collapse-border-radius;
+        border-radius: 0 0 $border-radius-card $border-radius-card;
       }
     }
     > .content {
-      padding: 8px;
+      border-radius: 0 0 $border-radius-card $border-radius-card;
     }
   }
 </style>

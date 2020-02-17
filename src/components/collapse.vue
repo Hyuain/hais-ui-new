@@ -6,7 +6,6 @@
 
 <script>
   import Vue from 'vue'
-
   export default {
     name: "HaiCollapse",
     props: {
@@ -55,12 +54,10 @@
 </script>
 
 <style lang="scss" scoped>
-  $border-color: #56a7ac;
-  $collapse-border-radius: 12px;
-  $text-color: #2a6c6f;
+  @import "src/assets/styles/default.scss";
   .collapse {
-    color: $text-color;
-    border: 1px solid $border-color;
-    border-radius: $collapse-border-radius;
+    color: $color-text;
+    border: $border;
+    border-radius: $border-radius-card;
   }
 </style>
