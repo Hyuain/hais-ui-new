@@ -1,6 +1,6 @@
 {
   "name": "hais-ui",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": false,
   "description": "一个基于 Vue 的简单 UI 框架",
   "main": "dist/hais-ui.umd.js",
