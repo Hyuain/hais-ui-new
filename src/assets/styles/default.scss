@@ -1,0 +1,41 @@
+/*
+** CSS Reset
+*/
+* { margin: 0; padding: 0 }
+* { box-sizing: border-box; }
+*::before, *::after { box-sizing: border-box; }
+
+/*
+** 主题配色
+*/
+
+$color-primary: #1fab89;
+$color-text: #081e1f;
+$color-bg: #ffffff;
+$color-bg-tab: #fafafa;
+$color-bg-active: #d7fbe8;
+$color-bg-dark: rgba(3, 6, 7, 0.80);
+$color-border: #dadada;
+$color-shadow: #1fab89;
+$color-disabled: #aaaaaa;
+$color-error: #ff6464;
+
+$border: 1px solid $color-border;
+
+$box-shadow-outer: 0 1px 1px rgba(27, 134, 104, 0.80);
+$box-shadow-inner: inset 0 1px 1px rgba(27, 134, 104, 0.80);
+
+/*
+** 组件大小
+*/
+
+$font-size: 14px;
+
+$border-radius: 16px;
+$border-radius-card: 8px;
+
+$height-button: 32px;
+$height-title: 32px;
+$height-input: 32px;
+$height-tab: 40px;
+$height-toast: 40px;
