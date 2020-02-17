@@ -1,22 +1,36 @@
 <template>
   <div class="demo-wrapper">
     <hai-collapse :selected="['name3']" alone>
-      <hai-collapse-item title="标题1" name="name1">这里是第1段内容</hai-collapse-item>
-      <hai-collapse-item title="标题2" name="name2">这里是第2段内容</hai-collapse-item>
-      <hai-collapse-item title="标题3" name="name3">这里是第3段内容</hai-collapse-item>
+      <hai-collapse-item title="标题1" name="name1">
+        <div class="content">这是第1段内容</div>
+      </hai-collapse-item>
+      <hai-collapse-item title="标题2" name="name2">
+        <div class="content">这是第2段内容</div>
+      </hai-collapse-item>
+      <hai-collapse-item title="标题3" name="name3">
+        <div class="content">这是第3段内容</div>
+      </hai-collapse-item>
     </hai-collapse>
   </div>
 </template>
 
 <script>
-  import Collapse from "../../../../src/collapse"
-  import CollapseItem from "../../../../src/collapse-item"
+
+  import Collapse from "../../../../src/components/collapse"
+  import CollapseItem from "../../../../src/components/collapse-item"
+
   export default {
+    data(){
+      return{
+        selectedItem: ['name2']
+      }
+    },
     components: {
       'hai-collapse': Collapse,
       'hai-collapse-item': CollapseItem
     }
   }
+
 </script>
 
 <style scoped>
@@ -30,5 +44,9 @@
     background: rgba(234, 236, 239, 0.5);
     border-radius: 6px;
     padding: 10px;
+  }
+  .content {
+    padding: 16px;
+    background: #fff;
   }
 </style>

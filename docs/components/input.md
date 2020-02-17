@@ -124,6 +124,7 @@ sidebarDepth: 2
 
 ```html
 <hai-input v-model="message"></hai-input>
-<p>{{message}}</p>
-<hai-button @click="message+=1">点我</hai-button>
+<hai-button @click="message+='点我 '">点我</hai-button>
+
+message: {{message}}
 ```

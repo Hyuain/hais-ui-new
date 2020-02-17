@@ -4,7 +4,7 @@ title: 快速上手
 
 # 快速上手
 
-当您安装好 Hais-UI 套件之后，您需要先在 CSS 中将 `box-sizing` 设置为 `border-box`，因为该套件中所有的 CSS 样式都是基于 `border-box` 设计的。
+当您安装好 Hais-UI 套件之后，您可以在 CSS 中将 `box-sizing` 设置为 `border-box`，这样可以带来更为一致的体验，因为该套件中所有的 CSS 样式都是基于 `border-box` 设计的。
 
 ```css
 *{ box-sizing: border-box; }

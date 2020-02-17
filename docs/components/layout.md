@@ -10,7 +10,7 @@ sidebarDepth: 2
 <br>
 
 <ClientOnly>
-<layer-demo-1></layer-demo-1>
+<layout-demo-1></layout-demo-1>
 </ClientOnly>
 
 ```html
