@@ -54,10 +54,10 @@
 </script>
 
 <style lang="scss" scoped>
-  $color-disabled: #aaaaaa;
-  $text-color-accent: #56a7ac;
+  @import "src/assets/styles/default.scss";
   .tabs-item {
     cursor: pointer;
+    transition: all .3s;
     &.direction-horizontal {
       flex-shrink: 0;
       padding: 0 1.5em;
@@ -65,7 +65,7 @@
       align-items: center;
       height: 100%;
       &.active {
-        color: $text-color-accent;
+        color: $color-primary;
         font-weight: bold;
       }
       &.disabled {
@@ -76,7 +76,7 @@
     &.direction-vertical {
       padding: .5em 1em;
       &.active {
-        color: $text-color-accent;
+        color: $color-primary;
         font-weight: bold;
       }
       &.disabled {

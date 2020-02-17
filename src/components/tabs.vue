@@ -68,9 +68,9 @@
 </script>
 
 <style lang="scss" scoped>
-  $text-color-dark: #282c34;
+  @import "src/assets/styles/default.scss";
   .tabs {
-    color: $text-color-dark;
+    color: $color-text;
     &.direction-vertical {
       display: flex;
     }

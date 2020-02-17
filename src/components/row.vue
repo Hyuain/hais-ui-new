@@ -46,6 +46,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "src/assets/styles/default.scss";
   .row {
     display: flex;
     flex-wrap: wrap;

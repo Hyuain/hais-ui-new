@@ -35,6 +35,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "src/assets/styles/default.scss";
   .tabs-pane{
     padding: 1em;
   }
