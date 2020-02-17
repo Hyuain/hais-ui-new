@@ -61,7 +61,7 @@
     &:hover {
       color: $color-primary;
       border-color: $color-primary;
-      box-shadow: $box-shadow;
+      box-shadow: $box-shadow-outer;
     }
     &:active {
       background-color: $color-primary;

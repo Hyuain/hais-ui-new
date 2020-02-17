@@ -17,6 +17,7 @@
   };
 </script>
 <style lang="scss" scoped>
+  @import "src/assets/styles/default.scss";
   .hai-icon {
     width: 1em;
     height: 1em;

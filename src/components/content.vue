@@ -11,7 +11,8 @@
 </script>
 
 <style lang="scss" scoped>
-  .content{
+  @import "src/assets/styles/default.scss";
+  .content {
     flex-grow: 1;
   }
 </style>

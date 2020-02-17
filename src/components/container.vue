@@ -7,8 +7,8 @@
 <script>
   export default {
     name: "HaiContainer",
-    data(){
-      return{
+    data() {
+      return {
         containerClass: {
           hasSider: false
         }
@@ -16,7 +16,7 @@
     },
     mounted() {
       this.$children.forEach(vm => {
-        if(vm.$options.name === 'HaiSider') {
+        if (vm.$options.name === 'HaiSider') {
           this.containerClass.hasSider = true
         }
       })
@@ -25,11 +25,12 @@
 </script>
 
 <style lang="scss" scoped>
-  .container{
+  @import "src/assets/styles/default.scss";
+  .container {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    &.hasSider{
+    &.hasSider {
       flex-direction: row;
     }
   }

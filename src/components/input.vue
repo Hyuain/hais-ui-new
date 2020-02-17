@@ -37,38 +37,55 @@
   }
 </script>
 <style lang="scss" scoped>
-  $font-size: 14px;
-  $input-height: 32px;
-  $text-color: #2a6c6f;
-  $border-radius: 16px;
-  $border-color: #56a7ac;
-  $border-color-hover: #2a6c6f;
-  $box-shadow-color: rgba(42, 108, 111, 0.7);
-  $color-disabled: #aaaaaa;
-  $box-shadow-color-disabled: rgba(170, 170, 170, 0.7);
-  $color-error: #ff6464;
-  $box-shadow-color-error: rgba(255, 100, 100, 0.7);
+  @import "src/assets/styles/default.scss";
   .wrapper {
-    font-size: $font-size;display: inline-flex;align-items: center;
-    height: $input-height;
+    font-size: $font-size;
+    display: inline-flex;
+    align-items: center;
+    height: $height-input;
     vertical-align: middle;
-    > :not(:last-child) {margin-right: .5em;}
+    > :not(:last-child) {
+      margin-right: .5em;
+    }
     > input {
       transition: all .2s;
-      height: $input-height - 2px;padding: 0 8px;font-size: inherit;color: $text-color;
-      border: 1px solid $border-color;border-radius: $border-radius;
-      &:hover {border-color: $border-color-hover;}
-      &:focus {box-shadow: inset 0 1px 1px $box-shadow-color;outline: none;}
-      &[disabled], &[readonly] {border-color: $color-disabled;color: $color-disabled;cursor: not-allowed;}
-      &[readonly]:focus {box-shadow: inset 0 1px 1px $box-shadow-color-disabled;}
+      height: $height-input - 2px;
+      padding: 0 8px;
+      font-size: inherit;
+      color: $color-text;
+      border: $border;
+      border-radius: $border-radius;
+      &:hover {
+        border-color: $color-primary;
+      }
+      &:focus {
+        border-color: $color-primary;
+        box-shadow: $box-shadow-inner;
+        outline: none;
+      }
+      &[disabled], &[readonly] {
+        border-color: $color-disabled;
+        color: $color-disabled;
+        cursor: not-allowed;
+      }
+      &[readonly]:focus {
+        box-shadow: inset 0 1px 1px $color-disabled;
+      }
     }
     &.error {
       > input {
-        border-color: $color-error; color: $color-error;
-        &:focus {box-shadow: inset 0 1px 1px $box-shadow-color-error;}
+        border-color: $color-error;
+        color: $color-error;
+        &:focus {
+          box-shadow: inset 0 1px 1px $color-error;
+        }
       }
     }
-    .icon-error {fill: $color-error;}
-    .message-error {color: $color-error;}
+    .icon-error {
+      fill: $color-error;
+    }
+    .message-error {
+      color: $color-error;
+    }
   }
 </style>

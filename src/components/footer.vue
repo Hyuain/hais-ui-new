@@ -11,4 +11,5 @@
 </script>
 
 <style scoped>
+  @import "src/assets/styles/default.scss";
 </style>

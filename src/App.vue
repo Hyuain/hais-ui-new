@@ -104,6 +104,21 @@
       </hai-tabs>
     </div>
 
+        <div class="box">
+          <hai-input v-model="message"></hai-input>
+          <p>{{message}}</p>
+          <button @click="message+=1">+1</button>
+          <hai-input value="啧啧啧" disabled></hai-input>
+          <hai-input value="啧啧啧" readonly></hai-input>
+        </div>
+
+        <div class="box">
+          <hai-input value="啧" error="姓名不能少于两个字"></hai-input>
+        </div>
+        <div class="box">
+          <hai-input value="啧"  @focus="this.focus2"></hai-input>
+        </div>
+
     <button @click="showToast1">top</button>
     <button @click="showToast2">middle</button>
     <button @click="showToast3">bottom</button>
@@ -131,7 +146,7 @@
   import HaiIcon from '@/components/icon'
   import HaiButton from '@/components/button'
   import HaiButtonGroup from '@/components/button-group.vue'
-  // import HaiInput from '@/components/input.vue'
+  import HaiInput from '@/components/input.vue'
   // import HaiRow from '@/components/row.vue'
   // import HaiCol from '@/components/col.vue'
   // import HaiContainer from '@/components/container.vue'
@@ -157,7 +172,7 @@
       HaiIcon,
       HaiButton,
       HaiButtonGroup,
-      // HaiInput,
+      HaiInput,
       // HaiRow,
       // HaiCol,
       // HaiContainer,
