@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-item">
-    <div class="title" @click="onClick" ref="title" :data-title="title" :data-name="name">
+    <div class="collapse-title" @click="onClick" ref="title" :data-title="title" :data-name="name">
       <hai-icon name="right" :class="{'icon': true,'icon-down': open}"/>
       {{title}}
     </div>
@@ -10,7 +10,7 @@
         @leave="leave"
         @after-leave="afterLeave"
     >
-      <div class="content" v-if="open" ref="content">
+      <div class="collapse-content" v-if="open" ref="content">
         <slot></slot>
       </div>
     </transition>
@@ -88,7 +88,7 @@
     .icon-down {
       transform: rotate(90deg);
     }
-    > .title {
+    > .collapse-title {
       border: $border;
       margin-top: -1px;
       margin-left: -1px;
@@ -102,17 +102,17 @@
       background: $color-bg-tab;
     }
     &:first-child {
-      > .title {
+      > .collapse-title {
         border-radius: $border-radius-card $border-radius-card 0 0;
       }
     }
     &:last-child {
-      > .title:last-child {
+      > .collapse-title:last-child {
         margin-bottom: -1px;
         border-radius: 0 0 $border-radius-card $border-radius-card;
       }
     }
-    > .content {
+    > .collapse-content {
       border-radius: 0 0 $border-radius-card $border-radius-card;
     }
   }
